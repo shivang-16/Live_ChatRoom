@@ -1,22 +1,17 @@
-import React from 'react'
-import '../Styles/message.scss'
+import React from "react";
+import "../Styles/message.scss";
 
-const Message = ({user, message, messageClass}) => {
-  if(user){
-
+const Message = ({ user, message, messageClass }) => {
+  if (user) {
   }
   return (
-  
-    <div className='message-box'>    
-        <div className={`message ${messageClass}`}>
-       <div className='username'>{user}</div>
+    <div className="message-box">
+      <div className={`message ${messageClass}`}>
+        <div className="username">{user}</div>
         {message}
-        
-        </div>
-        
+      </div>
     </div>
-     
-  )
-}
+  );
+};
 
-export default Message
+export default Message;

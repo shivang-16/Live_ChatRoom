@@ -1,13 +1,13 @@
-body{
-    background-color: rgb(32, 32, 32);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    height: 97vh;
-    overflow: hidden;
+body {
+  background-color: rgb(32, 32, 32);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  height: 97vh;
+  overflow: hidden;
 }
-input{
-    padding: 10px;
+input {
+  padding: 10px;
 }
