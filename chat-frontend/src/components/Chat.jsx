@@ -5,7 +5,7 @@ import Message from "./Message";
 import "../Styles/chat.scss";
 import ReactScrollToBottom from "react-scroll-to-bottom";
 
-const socket = io("http://localhost:4500");
+const socket = io("http://localhost:4500/");
 
 const Chat = () => {
   const [chat, setChat] = useState([]);

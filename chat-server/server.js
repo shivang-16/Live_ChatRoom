@@ -1,13 +1,23 @@
 import express from "express";
+import { config } from "dotenv";
 const app = express()
 import { Server } from "socket.io";
 import {createServer} from 'http'
 
 
+
+config({
+    path: './config.env'
+})
+
+const port = process.env.PORT;
+console.log(port)
+
+
 const users = [{}]
 const server = createServer(app)
 const io = new Server(server, {
-    cors: {
+    cors:{
         origin: '*'
     }
 })
@@ -21,7 +31,7 @@ io.on("connection", (socket)=>{
         callback(socket.id);
         socket.broadcast.emit('userJoined', {
             user: "Admin:",
-            message: `Welcome to the chat, ${users[socket.id]}`
+            message: `${users[socket.id]}, joined the chat`
         })
     })
     socket.on('chat', (payload)=>{
@@ -32,11 +42,14 @@ io.on("connection", (socket)=>{
     socket.on('disconnect', ()=>{
         socket.broadcast.emit('leave', {
             user: "Admin:",
-            message: `${users[socket.id]} has left the chat`
+            message: `${users[socket.id]}, left the chat`
         })
     })
 })
+app.get('/', (req, res)=>{
+    res.send("Server is working")
+})
 
-server.listen(4500, ()=>{
-    console.log("server is live on port 4500")
+server.listen(port, ()=>{
+    console.log("server is live ")
 })
